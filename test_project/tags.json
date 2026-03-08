@@ -1,0 +1,16 @@
+{
+  "test_login": [
+    "smoke",
+    "critical"
+  ],
+  "test_register": [
+    "smoke"
+  ],
+  "test_payment": [
+    "integration",
+    "critical"
+  ],
+  "test_search": [
+    "ui"
+  ]
+}
