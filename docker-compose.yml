@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  bearski:
+    build: .
+    volumes:
+      - ./reports:/app/reports
+      - ./screenshots:/app/screenshots
+    environment:
+      - BEARSKI_PARALLEL_WORKERS=4
