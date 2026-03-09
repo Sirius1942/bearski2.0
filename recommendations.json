@@ -1,0 +1,72 @@
+[
+  {
+    "type": "status_code",
+    "assertion": "assert response.status_code == 200",
+    "reason": "验证 HTTP 状态码为 200"
+  },
+  {
+    "type": "field_exists",
+    "assertion": "assert \"code\" in response.body",
+    "reason": "验证字段 code 存在"
+  },
+  {
+    "type": "field_exists",
+    "assertion": "assert \"success\" in response.body",
+    "reason": "验证字段 success 存在"
+  },
+  {
+    "type": "field_exists",
+    "assertion": "assert \"message\" in response.body",
+    "reason": "验证字段 message 存在"
+  },
+  {
+    "type": "field_exists",
+    "assertion": "assert \"data\" in response.body",
+    "reason": "验证字段 data 存在"
+  },
+  {
+    "type": "field_type",
+    "assertion": "assert isinstance(response.body[\"code\"], int)",
+    "reason": "验证字段 code 类型为 int"
+  },
+  {
+    "type": "field_type",
+    "assertion": "assert isinstance(response.body[\"success\"], bool)",
+    "reason": "验证字段 success 类型为 bool"
+  },
+  {
+    "type": "field_type",
+    "assertion": "assert isinstance(response.body[\"message\"], str)",
+    "reason": "验证字段 message 类型为 str"
+  },
+  {
+    "type": "field_type",
+    "assertion": "assert isinstance(response.body[\"data\"], dict)",
+    "reason": "验证字段 data 类型为 dict"
+  },
+  {
+    "type": "business_code",
+    "assertion": "assert response.body[\"code\"] == 0",
+    "reason": "验证业务状态码"
+  },
+  {
+    "type": "success_flag",
+    "assertion": "assert response.body[\"success\"] is True",
+    "reason": "验证成功标志"
+  },
+  {
+    "type": "data_not_empty",
+    "assertion": "assert response.body[\"data\"] is not None",
+    "reason": "验证数据字段非空"
+  },
+  {
+    "type": "content_type",
+    "assertion": "assert \"application/json\" in response.headers[\"Content-Type\"]",
+    "reason": "验证响应类型为 application/json"
+  },
+  {
+    "type": "performance",
+    "assertion": "assert response.duration < 1000",
+    "reason": "验证响应时间小于 1000ms"
+  }
+]
