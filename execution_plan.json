@@ -1,0 +1,43 @@
+{
+  "name": "priority_plan",
+  "created_at": "2026-03-09T16:03:46.397849",
+  "tasks": [
+    {
+      "case": "login_test",
+      "priority": "P0",
+      "scheduled_time": "2026-03-09T16:03:46.397855",
+      "tags": [
+        "smoke",
+        "critical"
+      ],
+      "status": "pending"
+    },
+    {
+      "case": "checkout_test",
+      "priority": "P1",
+      "scheduled_time": "2026-03-09T16:03:46.397857",
+      "tags": [
+        "smoke"
+      ],
+      "status": "pending"
+    },
+    {
+      "case": "profile_test",
+      "priority": "P2",
+      "scheduled_time": "2026-03-09T16:03:46.397858",
+      "tags": [
+        "ui"
+      ],
+      "status": "pending"
+    },
+    {
+      "case": "search_test",
+      "priority": "P3",
+      "scheduled_time": "2026-03-09T16:03:46.397859",
+      "tags": [
+        "feature"
+      ],
+      "status": "pending"
+    }
+  ]
+}
