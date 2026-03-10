@@ -1,0 +1,40 @@
+# 领星 ERP 操作脚本 - 导出销售报表
+
+name: "导出销售报表"
+description: "生成并导出销售数据报表"
+tags: ["report", "sales", "export"]
+
+steps:
+  - action: navigate
+    url: "https://erp.lingxing.com/erp/salesReport"
+    description: "进入销售报表"
+  
+  - action: click
+    selector: "input[name='dateRange']"
+    description: "点击日期选择器"
+  
+  - action: type
+    selector: "input[placeholder='开始日期']"
+    text: "{{start_date}}"
+    description: "输入开始日期"
+  
+  - action: type
+    selector: "input[placeholder='结束日期']"
+    text: "{{end_date}}"
+    description: "输入结束日期"
+  
+  - action: click
+    selector: "button:has-text('查询')"
+    description: "查询报表"
+  
+  - action: wait
+    seconds: 3
+    description: "等待报表生成"
+  
+  - action: click
+    selector: "button:has-text('导出')"
+    description: "导出 Excel"
+
+variables:
+  start_date: "2026-03-01"
+  end_date: "2026-03-10"

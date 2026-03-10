@@ -1,0 +1,42 @@
+# 领星 ERP 操作脚本 - 调整库存
+
+name: "调整库存"
+description: "手动调整产品库存数量"
+tags: ["inventory", "adjust"]
+
+steps:
+  - action: navigate
+    url: "https://erp.lingxing.com/erp/inventory"
+    description: "进入库存管理"
+  
+  - action: type
+    selector: "input[placeholder*='SKU']"
+    text: "{{sku}}"
+    description: "搜索 SKU"
+  
+  - action: click
+    selector: "button:has-text('搜索')"
+    description: "点击搜索"
+  
+  - action: click
+    selector: "button:has-text('调整库存')"
+    description: "点击调整库存"
+  
+  - action: type
+    selector: "input[name='quantity']"
+    text: "{{quantity}}"
+    description: "输入调整数量"
+  
+  - action: type
+    selector: "textarea[name='reason']"
+    text: "{{reason}}"
+    description: "输入调整原因"
+  
+  - action: click
+    selector: "button:has-text('确认')"
+    description: "确认调整"
+
+variables:
+  sku: "TEST-SKU-001"
+  quantity: "100"
+  reason: "盘点调整"

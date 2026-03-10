@@ -1,0 +1,42 @@
+# 领星 ERP 操作脚本 - 创建 FBA 货件
+
+name: "创建 FBA 货件"
+description: "向 Amazon FBA 仓库发货"
+tags: ["fba", "shipment", "create"]
+
+steps:
+  - action: navigate
+    url: "https://erp.lingxing.com/erp/fbaShipment"
+    description: "进入 FBA 货件管理"
+  
+  - action: click
+    selector: "button:has-text('创建货件')"
+    description: "点击创建货件"
+  
+  - action: select
+    selector: "select[name='marketplace']"
+    value: "{{marketplace}}"
+    description: "选择站点"
+  
+  - action: type
+    selector: "input[name='sku']"
+    text: "{{sku}}"
+    description: "输入 SKU"
+  
+  - action: type
+    selector: "input[name='quantity']"
+    text: "{{quantity}}"
+    description: "输入数量"
+  
+  - action: click
+    selector: "button:has-text('添加')"
+    description: "添加产品"
+  
+  - action: click
+    selector: "button:has-text('生成货件')"
+    description: "生成货件"
+
+variables:
+  marketplace: "US"
+  sku: "TEST-SKU-001"
+  quantity: "50"

@@ -1,0 +1,51 @@
+# 领星 ERP 操作脚本 - 创建新产品
+# 使用 BearSki DSL 格式
+
+name: "创建新产品"
+description: "添加新的 Amazon 产品到领星 ERP 系统"
+tags: ["product", "create", "basic"]
+
+steps:
+  - action: navigate
+    url: "https://erp.lingxing.com/erp/productManage"
+    description: "进入产品管理页面"
+  
+  - action: click
+    selector: "button:has-text('新建产品')"
+    description: "点击新建产品按钮"
+  
+  - action: wait
+    seconds: 2
+    description: "等待表单加载"
+  
+  - action: type
+    selector: "input[name='sku']"
+    text: "{{sku}}"
+    description: "输入产品 SKU"
+  
+  - action: type
+    selector: "input[name='title']"
+    text: "{{title}}"
+    description: "输入产品标题"
+  
+  - action: type
+    selector: "input[name='price']"
+    text: "{{price}}"
+    description: "输入产品价格"
+  
+  - action: click
+    selector: "button:has-text('保存')"
+    description: "保存产品"
+  
+  - action: wait
+    seconds: 1
+    description: "等待保存完成"
+  
+  - action: assert
+    condition: "page.locator('text=创建成功').isVisible()"
+    description: "验证创建成功"
+
+variables:
+  sku: "TEST-SKU-001"
+  title: "测试产品标题"
+  price: "29.99"
